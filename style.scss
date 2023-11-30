@@ -1,0 +1,74 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	height: 100%;
+}
+
+body,
+div {
+	display: flex;
+}
+
+body {
+	height: 100%;
+	margin-right: 100px;
+	align-items: center;
+	justify-content: flex-end;
+	background-color: #ccd7e2;
+	overflow: hidden;
+}
+
+.content {
+	align-items: center;
+	
+	//background-color: lightsteelblue;
+
+	.color-picker {
+		flex-direction: column;
+		//background-color: lightcoral;
+	
+		.colors {
+			$size: 128px;
+
+			display: grid;
+			grid-template-columns: repeat(3, $size);
+			grid-auto-rows: $size;
+			gap: 24px;
+	
+			//background-color: lightseagreen;
+		
+			.color {
+				align-items: center;
+				justify-content: center;
+				background-color: rgb(white, 0.3);
+				border-radius: 24px;
+
+				&::after {
+					content: "";
+					width: 80%;
+					height: 80%;
+					border-radius: 20px;
+				}
+				
+				&.purple::after { background-color: #c44dd4; }
+				&.orange::after { background-color: #d47e4d; }
+				&.purple::after { background-color: #c44dd4; }
+				&.purple::after { background-color: #c44dd4; }
+				&.purple::after { background-color: #c44dd4; }
+				&.purple::after { background-color: #c44dd4; }
+				&.purple::after { background-color: #c44dd4; }
+				&.purple::after { background-color: #c44dd4; }
+				&.purple::after { background-color: #c44dd4; }
+			}
+		}
+	}
+
+	.gba {
+		filter: drop-shadow(8px 12px 64px rgb(176, 212, 226));
+		//background-image: radial-gradient(80% 80% at 50%, #58818d 20%, transparent 40%);
+	}
+}

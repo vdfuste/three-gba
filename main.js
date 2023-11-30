@@ -1,11 +1,11 @@
 import * as Three from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GBA } from "./gba";
-import "./style.css";
+import "./style.scss";
 
 // Init some variables
-const SCREEN_WIDTH = window.innerWidth;
-const SCREEN_HEIGHT = window.innerHeight;
+const SCREEN_WIDTH = 1024; //window.innerWidth;
+const SCREEN_HEIGHT = 800; //window.innerHeight;
 const mouse = new Three.Vector2(0, 0);
 
 const scene = new Three.Scene();
@@ -13,9 +13,12 @@ const gba = new GBA(scene);
 
 
 // Lights
-const pointLight = new Three.PointLight(0xFFFFFF, 50, 1000);
+const pointLight = new Three.PointLight(0xFFFFFF, 350, 1000);
 pointLight.position.set(3.0, 15.0, 0.0);
 scene.add(pointLight);
+
+const ambientLight = new Three.AmbientLight(0xFFFFFF);
+scene.add(ambientLight);
 
 
 // Helpers
@@ -25,7 +28,7 @@ scene.add(pointLight);
 
 // Render elements
 const canvas = document.getElementById("canvas");
-const renderer = new Three.WebGLRenderer({ canvas, alpha: false });
+const renderer = new Three.WebGLRenderer({ canvas, antialias: true, alpha: true });
 renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 renderer.setPixelRatio(2);
 
