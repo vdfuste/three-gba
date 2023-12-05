@@ -31,7 +31,7 @@ body {
 		flex-direction: column;
 		//background-color: lightcoral;
 	
-		.colors {
+		#colors {
 			$size: 128px;
 
 			display: grid;
@@ -56,13 +56,6 @@ body {
 				
 				&.purple::after { background-color: #c44dd4; }
 				&.orange::after { background-color: #d47e4d; }
-				&.purple::after { background-color: #c44dd4; }
-				&.purple::after { background-color: #c44dd4; }
-				&.purple::after { background-color: #c44dd4; }
-				&.purple::after { background-color: #c44dd4; }
-				&.purple::after { background-color: #c44dd4; }
-				&.purple::after { background-color: #c44dd4; }
-				&.purple::after { background-color: #c44dd4; }
 			}
 		}
 	}

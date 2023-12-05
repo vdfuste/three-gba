@@ -1,16 +1,12 @@
 import * as Three from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { GBA } from "./gba";
+import { SCREEN_WIDTH, SCREEN_HEIGHT } from "./listeners";
+import { gba } from "./gba";
 import "./style.scss";
 
-// Init some variables
-const SCREEN_WIDTH = 1024; //window.innerWidth;
-const SCREEN_HEIGHT = 800; //window.innerHeight;
-const mouse = new Three.Vector2(0, 0);
 
 const scene = new Three.Scene();
-const gba = new GBA(scene);
-
+gba.init(scene);
 
 // Lights
 const pointLight = new Three.PointLight(0xFFFFFF, 350, 1000);
@@ -47,15 +43,8 @@ cameraControls.enablePan = false;
 // Update loop
 renderer.setAnimationLoop(() => {
 	// Update loop here
-	gba.update(mouse);
+	gba.update();
 
 	// Other stuff
 	renderer.render(scene, camera);
-});
-
-
-// Event Listeners
-window.addEventListener("mousemove", event => {
-	mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-	mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
 });
